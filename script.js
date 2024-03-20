@@ -1,5 +1,3 @@
-console.log(1111);
-
 const swiper = new Swiper(".faq__swiper", {
   slidesPerView: 1,
   spaceBetween: 24,
@@ -18,4 +16,17 @@ const swiper = new Swiper(".faq__swiper", {
     nextEl: ".my-button-next",
     prevEl: ".my-button-prev",
   },
+});
+
+const accordionItems = document.querySelectorAll(".accordion__item");
+
+accordionItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    const divImage = item.querySelector(".accordion__item-icon");
+    const image = divImage.querySelector("img");
+    /* image.style.transform = "rotate(45deg)"; */
+
+    image.classList.toggle("rotateImage");
+    item.nextElementSibling.classList.toggle("active");
+  });
 });
